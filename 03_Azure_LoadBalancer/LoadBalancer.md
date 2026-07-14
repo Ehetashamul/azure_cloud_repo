@@ -10,28 +10,32 @@ It makes sure that no single server receives all client requests.
 	"Azure Load Balancer is a Layer 4 load balancing service that distributes incoming TCP and UDP traffic across healthy backend resources such as Virtual Machines, Virtual Machine Scale Sets, or IP addresses. It improves availability by routing traffic only to healthy instances using health probes."
 
 Why Do We Need Azure Load Balancer?
+```text
 Without Load Balancer
-                 Internet
-                     │
-                     ▼
-                 Web Server
-                     │
-                     ▼
-              Single Point of Failure
+				 Internet
+					 │
+					 ▼
+				 Web Server
+					 │
+					 ▼
+			  Single Point of Failure
+```
 Problems
 	• Server overload
 	• Downtime
 	• Poor scalability
 	• No redundancy
 
+```text
 With Load Balancer
-                    Internet
-                        │
-                        ▼
-              Azure Load Balancer
-                │      │      │
-                ▼      ▼      ▼
-              VM1     VM2     VM3
+										Internet
+												│
+												▼
+							Azure Load Balancer
+								│      │      │
+								▼      ▼      ▼
+							VM1     VM2     VM3
+```
 Benefits
 	• Traffic distribution
 	• Automatic failover
@@ -45,30 +49,32 @@ Azure Load Balancer	Layer 4	TCP / UDP
 Azure Application Gateway	Layer 7	HTTP / HTTPS
 Azure Front Door	Layer 7	Global HTTP / HTTPS
 
+```text
 How Azure Load Balancer Works Internally
-              Client Request
-                     │
-                     ▼
-              Public IP Address
-                     │
-                     ▼
-          Frontend IP Configuration
-                     │
-                     ▼
-            Load Balancing Rule
-                     │
-                     ▼
-          Backend Address Pool
-                     │
-                     ▼
-        Health Probe Validation
-                     │
-        ┌────────────┴────────────┐
-        ▼                         ▼
+		Client Request
+			│
+			▼
+		Public IP Address
+			│
+			▼
+	   Frontend IP Configuration
+			│
+			▼
+	     Load Balancing Rule
+			│
+			▼
+	   Backend Address Pool
+			│
+			▼
+	 Health Probe Validation
+			│
+	 ┌────────────┴────────────┐
+	 ▼                         ▼
      Healthy VM               Unhealthy VM
-        │                           │
-        ▼                           ▼
+	 │                           │
+	 ▼                           ▼
  Receives Traffic             No Traffic
+```
 
 Components Explained
 1. Frontend IP Configuration
@@ -78,6 +84,7 @@ Types
 	• Public Frontend IP
 	• Private Frontend IP
 Example
+```text
 Internet
 ↓
 
@@ -85,6 +92,7 @@ Internet
 ↓
 
 Frontend IP
+```
 
 2. Backend Address Pool
 Contains backend resources.
@@ -94,14 +102,17 @@ Supported resources
 	• IP addresses
 	• Availability Sets
 Example
+```text
 Backend Pool
 VM1
 VM2
 VM3
+```
 
 3. Health Probe
 The Health Probe continuously checks whether backend instances are healthy.
 Example
+```text
 LB
 │
 
@@ -116,6 +127,7 @@ VM3 ✗
 ↓
 
 No traffic to VM3
+```
 Health Probe Protocols
 	• TCP
 	• HTTP
@@ -163,6 +175,7 @@ Used for
 	• RDP
 	• Administrative access
 
+```text
 Request Flow (Step by Step)
 User opens website
 ↓
@@ -186,6 +199,7 @@ VM responds
 ↓
 
 Response reaches user
+```
 
 Load Distribution Algorithm
 Azure Load Balancer does not use Round Robin.

@@ -1,3 +1,4 @@
+```
                Users Worldwide
                      │
          ┌───────────┴───────────┐
@@ -12,7 +13,7 @@
      ┌───────────────┼───────────────┐
      │               │               │
   East US      West Europe    Central India
-
+```
 Think of the Timeline
 Before Azure Front Door existed
 Microsoft had:
@@ -112,6 +113,7 @@ App Services / AKS
 Traffic Manager is often not deployed.
 
 For older, hybrid, or protocol-diverse environments:
+```
 Users
    │
    ▼
@@ -121,7 +123,7 @@ Traffic Manager
    ├────► AWS
    └────► On-Prem
 Traffic Manager is still useful.
-
+```
 Interview Perspective
 If you're interviewing for an Azure DevOps role (5–10 years) and the interviewer asks:
 	"If Front Door exists, why does Azure Traffic Manager exist?"

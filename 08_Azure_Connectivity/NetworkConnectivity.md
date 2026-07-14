@@ -1,6 +1,6 @@
 Azure Connectivity
-Azure Connectivity
 
+```
 ├── Azure ↔ Azure
 │     ├── VNet Peering
 │     ├── Global VNet Peering
@@ -24,6 +24,7 @@ Azure Connectivity
       ├── Private Endpoint
       ├── Private Link
       └── Service Endpoints
+```
 
 First Understand the Problem
 Imagine your company has:
@@ -43,7 +44,7 @@ Imagine Azure networking as roads.
 	• Between countries → International highway
 	• VIP private road → ExpressRoute
 Azure connectivity works the same way.
-
+```
 Azure Connectivity Services
                 Internet Users
                       │
@@ -87,7 +88,7 @@ Multiple Branches
     Virtual WAN
        │
   Multiple Azure VNets
-
+```
 
 Azure Connectivity Services Explained
 1. Virtual Network (VNet)
@@ -96,12 +97,13 @@ Creates a private network inside Azure.
 Think of it as your company's office network but in the cloud.
 Without a VNet, Azure resources cannot communicate privately.
 Example:
+```
 VM1
  │
  ├──── Azure VNet
  │
 VM2
-
+```
 Both VMs communicate using private IPs.
 Interview line:
 	VNet is the foundation of Azure networking. It provides secure communication between Azure resources using private IP addresses. (Microsoft Learn)
@@ -111,6 +113,7 @@ Problem
 Your company has an on-premises datacenter.
 You need secure communication with Azure.
 Solution:
+```
 VPN Gateway
 Office
    │
@@ -119,7 +122,7 @@ Encrypted VPN Tunnel
 Azure VPN Gateway
    │
 Azure VNet
-
+```
 Uses:
 	• Hybrid Cloud
 	• Small to medium organizations
@@ -203,6 +206,7 @@ Singapore Office
 20 Azure VNets
 Managing individual VPNs becomes difficult.
 Solution
+```
 Virtual WAN
          Branch Office
              │
@@ -214,7 +218,7 @@ Singapore ----┤
          Azure Virtual WAN
               │
       Multiple Azure VNets
-
+```
 Benefits
 	• Centralized connectivity
 	• Hub-and-spoke architecture
@@ -243,7 +247,7 @@ Interview Answer:
 Earlier method.
 Traffic still reaches the Azure service's public endpoint but remains on the Microsoft backbone after leaving the subnet.
 Private Endpoint is generally preferred because it gives the service a private IP inside your VNet.
-
+```
 Complete Connectivity Decision Tree
 Need communication?
 │
@@ -276,7 +280,7 @@ Need Secure PaaS Access
         │
  Private Endpoint
 
-
+```
 Real Company Example
 Suppose Infosys migrates applications to Azure.
 Employees
@@ -338,6 +342,7 @@ Azure-only access	Works across hybrid networks
 
 Interview Tip (5–10 Years)
 Interviewers often expect you to know which connectivity service to choose:
+
 	• Within a VNet → VNet
 	• Between Azure VNets → VNet Peering
 	• On-premises to Azure (internet) → VPN Gateway

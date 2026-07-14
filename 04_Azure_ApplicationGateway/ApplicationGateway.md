@@ -1,15 +1,17 @@
 Azure Application Gateway
 What problem does Azure Application Gateway solve?
 Imagine your company has multiple web applications running on Azure.
+```text
 Users
-   │
-   ▼
+	│
+	▼
 Public IP
-   │
-   ▼
+	│
+	▼
 VM-1 (Website)
 VM-2 (API)
 VM-3 (Admin Portal)
+```
 Problems:
 	• Every application needs its own Public IP ❌
 	• SSL certificates need to be managed separately ❌
@@ -38,22 +40,24 @@ Three Public IPs
 Three SSL Certificates
 Three Entry Points
 
+```text
 With Application Gateway
-                Internet
-                    │
-             Public IP
-                    │
-                    ▼
-        Azure Application Gateway
-        +-----------------------+
-        | SSL Termination       |
-        | URL Routing           |
-        | WAF                   |
-        | Health Probes         |
-        +-----------------------+
-            │       │        │
-            ▼       ▼        ▼
-        Website    API     Admin
+				Internet
+					│
+			 Public IP
+					│
+					▼
+		Azure Application Gateway
+		+-----------------------+
+		| SSL Termination       |
+		| URL Routing           |
+		| WAF                   |
+		| Health Probes         |
+		+-----------------------+
+			│       │        │
+			▼       ▼        ▼
+		Website    API     Admin
+```
 Single Public IP
 Single Entry Point
 Centralized SSL
@@ -71,6 +75,7 @@ It understands
 	• Query Strings
 This makes intelligent routing possible.
 
+```text
 How Request Flows
 User
 │
@@ -105,6 +110,7 @@ Backend Pool
 
 ▼
 Web Server
+```
 
 Major Components
 1. Frontend IP
@@ -178,6 +184,7 @@ Admin Server
 ↓
 Website
 
+```text
 URL Path Routing Example
 User requests
 company.com/images/logo.png
@@ -193,6 +200,7 @@ User requests
 company.com/admin
 ↓
 Admin Server
+```
 
 Configuration
 /api/*

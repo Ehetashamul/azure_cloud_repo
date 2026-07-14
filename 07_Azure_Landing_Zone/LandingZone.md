@@ -2,10 +2,12 @@
 
 ### One-line Interview Answer
 
-> **Azure Landing Zone is a pre-configured, secure, governed, and scalable Azure foundation where application teams can safely deploy workloads according to organizational standards.** ([Azure][1])
+> **Azure Landing Zone is a pre-configured, secure, governed, and scalable Azure foundation where application teams can safely deploy workloads according to organizational standards.**
 
 
 What Does a Landing Zone Actually Contain?
+
+```
 Azure Tenant
 │
 ├── Management Groups
@@ -30,6 +32,7 @@ Azure Tenant
 ├── Cost Management
 │
 └── Automation (Terraform/Bicep)
+```
 
 Every component in the Landing Zone has a specific responsibility.
 
@@ -231,6 +234,7 @@ Azure Landing Zone Using Terraform
 Infrastructure is usually deployed through Terraform rather than the Azure portal.
 Example project structure:
 
+```
 terraform/
 ├── backend.tf
 ├── providers.tf
@@ -257,6 +261,8 @@ terraform/
 │
 └── pipelines/
       └── azure-pipelines.yml
+
+```
 Best Practices
 	• Remote backend (Azure Storage) 
 	• State locking 

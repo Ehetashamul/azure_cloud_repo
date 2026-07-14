@@ -1,14 +1,16 @@
 What problem does Azure Front Door solve?
 Imagine your company has users from:
-	• 🇮🇳 India
-	• 🇺🇸 USA
-	• 🇬🇧 UK
-	• 🇦🇺 Australia
+```text
+• 🇮🇳 India
+• 🇺🇸 USA
+• 🇬🇧 UK
+• 🇦🇺 Australia
 But your application is deployed only in East US.
 India Users  ─────┐
 USA Users ────────┤
 UK Users ─────────┤────► East US Web App
 Australia Users ──┘
+```
 
 Problems:
 ❌ Users in India experience high latency.
@@ -36,10 +38,11 @@ When you open Amazon:
 	6. Response comes back quickly.
 Azure Front Door works exactly like this.
 
+```text
 Without Azure Front Door
-             Users Worldwide
+			 Users Worldwide
 │
-                  ▼
+				  ▼
 East US Web App
 Problems
 ❌ Long latency
@@ -48,10 +51,10 @@ Problems
 ❌ No edge security
 
 With Azure Front Door
-          Users Worldwide
+		  Users Worldwide
 India   USA   Europe
 │
-             ▼
+			 ▼
 Azure Front Door
 (Global Entry Point + WAF)
 /        |        \
@@ -63,6 +66,7 @@ Benefits:
 ✅ Global load balancing
 ✅ Failover
 ✅ WAF protection
+```
 
 Think Like This
 Azure Front Door is like a smart airport.
@@ -94,8 +98,9 @@ Cookies
 Host Names
 Unlike Layer-4 Load Balancer.
 
+```text
 Global Architecture
-             DNS
+		 DNS
 │
 
 ▼
@@ -108,10 +113,11 @@ Microsoft's Global Network
 
 Health Probe Check
 ┌───────────────┐
-      │               │
-      ▼               ▼
+	│               │
+	▼               ▼
 East US App      West Europe App
 Traffic never goes over the public internet after entering Microsoft's backbone network.
+```
 
 Main Components
 1. Frontend Host
@@ -173,6 +179,7 @@ Videos
 Stored at edge.
 Users receive content much faster.
 
+```text
 Request Flow
 User
 │
@@ -203,6 +210,7 @@ Nearest Healthy Backend
 
 ▼
 Response
+```
 
 Supported Backends
 Azure Front Door can route to:
