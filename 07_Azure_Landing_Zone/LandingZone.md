@@ -1,3 +1,4 @@
+```
 # What is Azure Landing Zone?
 
 ### One-line Interview Answer
@@ -512,3 +513,4 @@ Governance	Management Groups, Azure Policy, RBAC
 Monitoring	Azure Monitor, Log Analytics, Application Insights
 Security	Defender for Cloud, Firewall, Key Vault, Private Endpoints
 DevOps Role	Automate Landing Zone provisioning, enforce governance, and deploy compliant workloads through CI/CD pipelines
+```
