@@ -211,7 +211,7 @@ Nearest Healthy Backend
 ▼
 Response
 ```
-
+```
 Supported Backends
 Azure Front Door can route to:
 ✅ App Service
@@ -327,7 +327,7 @@ SSL Offloading	✅	✅	❌
 Path-Based Routing	✅	✅	❌
 Health Probes	✅	✅	✅
 CDN Integration	✅	❌	❌
-
+```
 Interview Scenario
 Question: Your application is deployed in East US and West Europe. Users should always connect to the nearest healthy region, and if one region fails, traffic should automatically fail over. You also need WAF protection and SSL offloading. What Azure service would you choose?
 Answer: Azure Front Door, because it provides global Layer-7 load balancing, intelligent routing, automatic failover, Web Application Firewall (WAF), SSL termination, and traffic acceleration over Microsoft's global network.
@@ -392,6 +392,7 @@ Front Door automatically routes users to West Europe or Central India.
 No manual intervention required.
 
 4. Explain Latency-Based, Priority-Based, and Weighted Routing.
+```
 A. Latency Routing
 Routes traffic to the backend with the lowest latency.
 Example:
@@ -436,8 +437,9 @@ Use Cases:
 	• Blue-Green Deployment
 	• Canary Releases
 	• A/B Testing
-
+```
 5. What is the difference between an Origin and an Origin Group?
+```
 Origin
 An Origin is an actual backend resource.
 Examples:
@@ -464,9 +466,10 @@ Routing policies apply to the Origin Group.
 Interview Tip
 Origin = Backend server
 Origin Group = Collection of backend servers
-
+```
 6. How does Front Door integrate with Azure WAF?
 Answer
+```
 Azure Front Door integrates natively with Azure Web Application Firewall.
 Incoming requests flow as:
 Client
@@ -491,11 +494,12 @@ Benefits
 	• Protection at Microsoft's edge
 	• Traffic blocked before reaching backend
 	• Reduced backend load
-
+```
 7. Can Front Door route traffic to on-premises or external applications?
 Answer
 Yes.
 Front Door supports any publicly reachable backend.
+```
 Examples:
 	• Azure App Service
 	• AKS
@@ -504,15 +508,17 @@ Examples:
 	• Google Cloud
 	• On-premises web server
 	• External public website
+
 Requirement:
 Backend must be accessible over Public HTTP/HTTPS.
-Interview Follow-up
+```
 Q: Can Front Door connect directly to a private on-premises server?
 Answer:
 No, not directly. The origin must be publicly reachable, or you can use Azure Front Door Premium with Private Link for supported Azure private origins. A purely private on-premises server cannot be used unless it is exposed through a supported secure architecture.
 
 8. How does SSL Termination improve performance?
 Answer
+```
 Without SSL termination:
 Client
 ↓
@@ -538,9 +544,10 @@ Benefits:
 	• Centralized certificate management
 	• Easier certificate renewal
 	• Improved scalability
-
+```
 9. How would you deploy Azure Front Door using Terraform in an Azure DevOps Pipeline?
 Answer
+```
 Typical CI/CD flow:
 Developer
 ↓
@@ -587,7 +594,7 @@ Be ready to explain how you would implement:
 	• terraform fmt and terraform validate
 	• Security scanning (Checkov/Terrascan)
 	• Drift detection
-
+```
 10. When would you choose Azure Front Door over Application Gateway?
 Choose Azure Front Door when:
 	• Application serves users globally.
@@ -615,6 +622,7 @@ Application Gateway
 Additional Interview Questions (Recommended for 5–10 Years)
 11. What is the request flow in Azure Front Door?
 Answer
+```
 User
    │
    ▼
@@ -632,7 +640,7 @@ Origin Group
    ▼
 Healthy Origin
 The request enters Microsoft's edge network first, where routing, WAF inspection, caching (if enabled), and health-based origin selection occur before reaching the backend.
-
+```
 12. Does Azure Front Door cache content?
 Answer
 Yes. Azure Front Door can cache static content such as images, CSS, JavaScript, and videos at edge locations.

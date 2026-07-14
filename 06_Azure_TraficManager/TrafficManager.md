@@ -20,7 +20,7 @@ Microsoft had:
 	• Azure Load Balancer (Regional)
 	• Azure Traffic Manager (Global DNS)
 If you wanted users worldwide to reach the nearest region, Traffic Manager was the solution.
-
+```
 Then Microsoft introduced Azure Front Door
 Front Door can now do:
 	• Global routing ✅
@@ -32,7 +32,7 @@ Front Door can now do:
 	• URL routing ✅
 So naturally people ask:
 	"Why would I use Traffic Manager anymore?"
-
+```
 The Key Difference
 Imagine you own a hotel.
 Traffic Manager = Receptionist
@@ -61,7 +61,7 @@ Custom TCP Application
 Can Front Door proxy these?
 ❌ No.
 Traffic Manager can still answer the DNS query and direct clients to the right endpoint because it doesn't care what protocol your application uses.
-
+```
 Example 1: Website
 https://company.com
 Use:
@@ -111,7 +111,7 @@ Azure Front Door
    ▼
 App Services / AKS
 Traffic Manager is often not deployed.
-
+```
 For older, hybrid, or protocol-diverse environments:
 ```
 Users
