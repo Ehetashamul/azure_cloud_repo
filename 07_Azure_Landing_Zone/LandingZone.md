@@ -1,4 +1,3 @@
-```
 # What is Azure Landing Zone?
 
 ### One-line Interview Answer
@@ -459,6 +458,7 @@ Includes governance, identity, networking, security	Contains Azure resources
 Can span multiple subscriptions	Single Azure subscription
 
 5. Which Azure services are commonly part of a Landing Zone?
+```
 Answer:
 	• Microsoft Entra ID
 	• Management Groups
@@ -473,7 +473,7 @@ Answer:
 	• Defender for Cloud
 	• Private DNS
 	• VPN Gateway / ExpressRoute
-
+```
 6. How is Terraform used with Azure Landing Zones?
 Answer:
 Terraform is commonly used to provision and manage Landing Zone resources as Infrastructure as Code (IaC). Teams version the code in Git, run terraform plan for review, and terraform apply through Azure DevOps or GitHub Actions pipelines to ensure repeatable, auditable deployments.
@@ -513,4 +513,3 @@ Governance	Management Groups, Azure Policy, RBAC
 Monitoring	Azure Monitor, Log Analytics, Application Insights
 Security	Defender for Cloud, Firewall, Key Vault, Private Endpoints
 DevOps Role	Automate Landing Zone provisioning, enforce governance, and deploy compliant workloads through CI/CD pipelines
-```
