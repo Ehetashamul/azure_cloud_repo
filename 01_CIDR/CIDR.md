@@ -1,3 +1,108 @@
+# CIDR (Classless Inter‑Domain Routing)
+
+CIDR replaces the old class‑based system (A/B/C) to allow flexible subnetting and efficient IP allocation.
+
+- IPv4 has **32 bits total**.
+- Subtract prefix length from 32 → gives **host bits**.
+- Number of addresses = \(2^{\text{host bits}}\).
+
+---
+
+## Binary and Decimal Representation
+
+- **Binary:** `00000000.00000000.00000000.00000000` → `11111111.11111111.11111111.11111111`  
+- **Decimal:** `0.0.0.0` → `255.255.255.255`
+
+---
+
+## IP Calculation Formula
+
+
+
+\[
+2^{(32 - n)} \quad \text{where n = prefix length}
+\]
+
+
+
+**Decimal to Binary conversion weights:**  
+`[128, 64, 32, 16, 8, 4, 2, 1]`
+
+---
+
+## IPv4 Address Space
+
+IPv4 addresses are 32-bit numbers, meaning the total possible addresses are:
+
+
+
+\[
+2^{32 - 0} = 4,294,967,296
+\]
+
+
+
+So IPv4 can have about **4.29 billion unique addresses**.
+
+---
+
+## Example Networks
+
+| Network       | Prefix | Total IPs   | Usable IPs   | Notes                                   |
+|---------------|--------|-------------|--------------|-----------------------------------------|
+| 0.0.0.0/0     | 0      | 4,294,967,296 | —          | Entire IPv4 space (no subnetting)       |
+| 10.0.0.0/8    | 8      | 16,777,216  | 16,777,214   | 2 reserved (network + broadcast)        |
+| 10.10.0.0/16  | 16     | 65,536      | 65,534       | 2 reserved                              |
+| 10.10.10.0/24 | 24     | 256         | 254          | 2 reserved                              |
+| 10.10.10.10/32| 32     | 1           | 1            | Single host (no broadcast/network)      |
+
+---
+
+## Azure Subnet Reserved Addresses
+
+When you create a subnet in an **Azure Virtual Network (VNet)**, the following addresses are reserved:
+
+1. First IP (`x.x.x.0`) → Network identifier  
+2. Second IP (`x.x.x.1`) → Default gateway  
+3. Third IP (`x.x.x.2`) → Azure DNS mapping  
+4. Fourth IP (`x.x.x.3`) → Azure internal services  
+5. Last IP (`x.x.x.255` in /24) → Broadcast address  
+
+---
+
+## Private IP Ranges (RFC 1918)
+
+These are **not routable on the internet**; used inside LANs, VNets, etc.
+
+- `10.0.0.0/8` → 10.0.0.0 – 10.255.255.255 (16,777,216 addresses)  
+- `172.16.0.0/12` → 172.16.0.0 – 172.31.255.255 (1,048,576 addresses)  
+- `192.168.0.0/16` → 192.168.0.0 – 192.168.255.255 (65,536 addresses)  
+
+### Usage Examples
+
+| Range                        | Who Uses It                          | Example Use                  |
+|------------------------------|---------------------------------------|------------------------------|
+| 10.0.0.0 – 10.255.255.255    | Enterprises, cloud VNets (Azure, AWS, GCP) | Internal servers, VMs, routers |
+| 172.16.0.0 – 172.31.255.255  | Medium‑sized networks                 | Corporate LANs, VPNs         |
+| 192.168.0.0 – 192.168.255.255| Home and small office networks        | Wi‑Fi routers, PCs, printers |
+
+---
+
+## Public IP Range
+
+- All other IPv4 addresses (except reserved ranges) are **public and routable** on the internet.  
+- Examples: `8.8.8.8` (Google DNS), `20.x.x.x` (Azure public IPs).
+
+---
+
+## Special Reserved Ranges
+
+- `127.0.0.0/8` → Loopback (localhost)  
+- `169.254.0.0/16` → APIPA (automatic private IP when DHCP fails)  
+- `224.0.0.0 – 239.255.255.255` → Multicast  
+- `240.0.0.0 – 255.255.255.255` → Experimental  
+
+
 
 # CIDR (Classless Inter-Domain Routing) – Complete Interview Notes (Azure DevOps 5–10 Years)
 
