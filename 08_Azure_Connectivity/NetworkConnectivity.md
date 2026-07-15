@@ -352,3 +352,5 @@ Interviewers often expect you to know which connectivity service to choose:
 	• Global application traffic → Azure Front Door
 	• Regional web traffic (Layer 7) → Application Gateway
 	• Regional TCP/UDP traffic (Layer 4) → Azure Load Balancer
+
+	Need to update this as per need !!!
