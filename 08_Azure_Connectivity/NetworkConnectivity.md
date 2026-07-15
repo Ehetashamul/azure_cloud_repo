@@ -353,3 +353,4 @@ Interviewers often expect you to know which connectivity service to choose:
 	• Regional web traffic (Layer 7) → Application Gateway
 	• Regional TCP/UDP traffic (Layer 4) → Azure Load Balancer
 
+The end
