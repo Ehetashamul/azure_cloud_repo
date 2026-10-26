@@ -328,3 +328,78 @@ For DevOps, focus on these five topics first:
 3. DNS caching and TTL.
 4. DNS troubleshooting using `nslookup` and `dig`.
 5. Public DNS vs. private DNS, especially Azure Private DNS and private endpoints.
+
+
+## What is `nslookup -type=NS`?
+
+`nslookup -type=NS` is a DNS command used to **find the Name Servers (NS) responsible for a domain**.
+
+In simple terms, it tells you which DNS servers manage the DNS records for a domain.
+
+### 1. Syntax
+
+```bash
+nslookup -type=NS example.com
+```
+
+For your example, you can run:
+
+```bash
+nslookup -type=NS devopsinsiders.com
+```
+
+### 2. Example output
+
+Suppose the output is:
+
+```text
+devopsinsiders.com    nameserver = elinore.ns.cloudflare.com
+devopsinsiders.com    nameserver = another.ns.cloudflare.com
+```
+
+This tells you that the domain uses these name servers.
+
+- `devopsinsiders.com` — the domain you queried.
+- `elinore.ns.cloudflare.com` — one of its authoritative name servers.
+- The other name server — typically provides redundancy.
+
+*The output above is illustrative; actual results depend on the domain's current DNS configuration.*
+
+### 3. How does this relate to your DNS diagram?
+
+Your diagram shows:
+
+`elinore.ns.cloudflare.com`
+
+When you execute:
+
+```bash
+nslookup -type=NS devopsinsiders.com
+```
+
+You are asking DNS:
+
+**"Which name servers are authoritative for `devopsinsiders.com`?"**
+
+The answer identifies the name servers, not necessarily the IP address of `netflix.devopsinsiders.com`.
+
+### 4. Difference between `A`, `NS`, and `MX`
+
+| Command | What it finds | Example purpose |
+|---|---|---|
+| `nslookup -type=A example.com` | IPv4 address | Find a website's IPv4 address |
+| `nslookup -type=AAAA example.com` | IPv6 address | Find a website's IPv6 address |
+| `nslookup -type=NS example.com` | Name servers | Find which DNS servers manage the domain |
+| `nslookup -type=MX example.com` | Mail servers | Find where domain email is handled |
+| `nslookup -type=TXT example.com` | TXT records | Check verification or SPF records |
+
+### 5. DevOps interview tip
+
+**Question:** Why do we use `nslookup -type=NS`?
+
+**Answer:** We use it to identify the name servers responsible for a domain's DNS zone. It is useful for verifying DNS delegation, checking whether a domain uses Cloudflare or another DNS provider, and troubleshooting DNS configuration issues.
+
+**Remember:**
+- `A` record → Where does this hostname point?
+- `NS` record → Which name servers manage this domain?
+- `MX` record → Which mail servers handle this domain's email?
